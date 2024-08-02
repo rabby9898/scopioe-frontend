@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -22,7 +21,7 @@ export default function Slider() {
               backgroundImage: "url(https://i.ibb.co/hVhsnsz/signup-Img.png)",
             }}
           >
-            <div className="hero-content text-neutral-content text-center">
+            <div className="hero-content text-neutral-content text-center font-poppins">
               <div className="max-w-md p-12 bg-[#152A16] bg-opacity-70 backdrop-blur-md rounded-lg">
                 <h1 className=" text-xl font-bold text-[#156BCA]">
                   Create Account
@@ -41,7 +40,7 @@ export default function Slider() {
               backgroundImage: "url(https://i.ibb.co/hVhsnsz/signup-Img.png)",
             }}
           >
-            <div className="hero-content text-neutral-content text-center">
+            <div className="hero-content text-neutral-content text-center font-poppins">
               <div className="max-w-md p-12 bg-[#152A16] bg-opacity-70 backdrop-blur-md rounded-lg">
                 <h1 className=" text-xl font-bold text-[#156BCA]">
                   Create Account
@@ -60,7 +59,7 @@ export default function Slider() {
               backgroundImage: "url(https://i.ibb.co/hVhsnsz/signup-Img.png)",
             }}
           >
-            <div className="hero-content text-neutral-content text-center">
+            <div className="hero-content text-neutral-content text-center font-poppins">
               <div className="max-w-md p-12 bg-[#152A16] bg-opacity-70 backdrop-blur-md rounded-lg">
                 <h1 className=" text-xl font-bold text-[#156BCA]">
                   Create Account
