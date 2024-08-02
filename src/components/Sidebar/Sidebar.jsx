@@ -13,7 +13,9 @@ const Sidebar = () => {
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#D4E9FF] dark:hover:bg-gray-700 group"
             >
               <img src="https://i.ibb.co/fNLw56H/home.png" alt="" />
-              <span className="ms-3 text-[#5C635A] text-base">Home</span>
+              <span className="ms-3 text-[#5C635A] text-base font-normal">
+                Home
+              </span>
             </a>
           </li>
           <li>
@@ -22,7 +24,7 @@ const Sidebar = () => {
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#D4E9FF] dark:hover:bg-gray-700 group"
             >
               <img src="https://i.ibb.co/jyQKKJD/new.png" alt="" />
-              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base">
+              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base font-normal">
                 New Listing
               </span>
             </a>
@@ -33,7 +35,7 @@ const Sidebar = () => {
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#D4E9FF] dark:hover:bg-gray-700 group"
             >
               <img src="https://i.ibb.co/pWGfgXP/Search.png" alt="" />
-              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base">
+              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base font-normal">
                 Search
               </span>
             </a>
@@ -44,7 +46,7 @@ const Sidebar = () => {
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#D4E9FF] dark:hover:bg-gray-700 group"
             >
               <img src="https://i.ibb.co/7K37Cv3/Paper.png" alt="" />
-              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base">
+              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base font-normal">
                 About
               </span>
             </a>
@@ -55,7 +57,7 @@ const Sidebar = () => {
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#D4E9FF] dark:hover:bg-gray-700 group mb-5"
             >
               <img src="https://i.ibb.co/48DMrm8/Vector.png" alt="" />
-              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base">
+              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base font-normal">
                 Favorites
               </span>
             </a>
@@ -67,7 +69,7 @@ const Sidebar = () => {
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#D4E9FF] dark:hover:bg-gray-700 group mt-5"
             >
               <img src="https://i.ibb.co/3zKYZmv/info.png" alt="" />
-              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base">
+              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base font-normal">
                 Help Center
               </span>
             </a>
@@ -78,7 +80,7 @@ const Sidebar = () => {
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-[#D4E9FF] dark:hover:bg-gray-700 group"
             >
               <img src="https://i.ibb.co/b53KmBg/Setting.png" alt="" />
-              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base">
+              <span className="flex-1 ms-3 whitespace-nowrap text-[#5C635A] text-base font-normal">
                 Setting
               </span>
             </a>

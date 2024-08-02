@@ -1,15 +1,16 @@
+import Banner from "../components/Banner/Banner";
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
 
 const Home = () => {
   return (
-    <>
+    <div className="font-poppins">
       <Sidebar />
       <div className="sm:ml-64">
         <Navbar />
-        <h1>This is home content</h1>
+        <Banner />
       </div>
-    </>
+    </div>
   );
 };
 
