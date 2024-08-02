@@ -1,8 +1,15 @@
+import Navbar from "../components/Navbar/Navbar";
+import Sidebar from "../components/Sidebar/Sidebar";
+
 const Home = () => {
   return (
-    <div>
-      <h1>This is Home</h1>
-    </div>
+    <>
+      <Sidebar />
+      <div className="sm:ml-64">
+        <Navbar />
+        <h1>This is home content</h1>
+      </div>
+    </>
   );
 };
 
