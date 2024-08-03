@@ -3,30 +3,30 @@
   width: 50px;
   height: 50px;
   z-index: 1;
-  background-color: #f0f0f0; /* Background color */
-  border-radius: 50%;        /* Rounded corners for circular buttons */
-  border: 1px solid #ccc;    /* Border color */
+  background-color: #f0f0f0;
+  border-radius: 50%;        
+  border: 1px solid #ccc;    
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 .slick-prev::before,
 .slick-next::before {
-  font-size: 16px;          /* Adjusted font size */
-  color: #333;              /* Icon color */
+  font-size: 16px;       
+  color: #333;    
 }
 
 .slick-prev::before {
-  content: '\2190';         /* Unicode character for left arrow */
+  content: '\2190';     
 }
 
 .slick-next::before {
-  content: '\2192';         /* Unicode character for right arrow */
+  content: '\2192';        
 }
 
-/* Optional: Adjusting hover and active states */
+
 .slick-prev:hover,
 .slick-next:hover {
   background-color: #e0e0e0;

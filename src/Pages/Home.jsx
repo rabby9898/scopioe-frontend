@@ -1,6 +1,7 @@
 import Banner from "../components/Banner/Banner";
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
+import TestimonialCities from "../components/TestimonialCities/TestimonialCities";
 import Therapist from "../components/Therapist/Therapist";
 
 const Home = () => {
@@ -10,7 +11,11 @@ const Home = () => {
       <div className="sm:ml-64">
         <Navbar />
         <Banner />
+        {/* <h1 className="text-[#152A16] text-lg font-semibold font-poppins m-5">
+          Featured Therapist
+        </h1> */}
         <Therapist />
+        <TestimonialCities />
       </div>
     </div>
   );

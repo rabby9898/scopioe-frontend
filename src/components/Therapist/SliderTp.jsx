@@ -80,12 +80,12 @@ export default function SliderTp() {
   };
 
   return (
-    <div className="slider-container">
+    <div className="slider-container ">
       <Slider {...settings}>
         {data.map((item, index) => (
           <div
             key={index}
-            className="border border-gray-200 shadow-xl rounded-lg"
+            className="border border-gray-200 shadow-xl rounded-lg "
           >
             <img
               className="w-full h-[220px] p-3"
