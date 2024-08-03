@@ -14,7 +14,7 @@ export default function Slider() {
     <div>
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
         <SwiperSlide>
-          <div className="space-y-5">
+          <div className="space-y-10 mb-10">
             <div className="w-[500px] h-[full] mx-auto card card-side bg-base-100 shadow-xl border border-gray-200">
               <img
                 className="w-[300px] h-[200px] rounded-lg p-3"
@@ -67,7 +67,7 @@ export default function Slider() {
         </SwiperSlide>
         {/* 2--- */}
         <SwiperSlide>
-          <div className="space-y-5">
+          <div className="space-y-10 mb-10">
             <div className="w-[500px] h-[full] mx-auto card card-side bg-base-100 shadow-xl border border-gray-200">
               <img
                 className="w-[300px] h-[200px] rounded-lg p-3"
@@ -120,7 +120,7 @@ export default function Slider() {
         </SwiperSlide>
         {/* 3 */}
         <SwiperSlide>
-          <div className="space-y-5">
+          <div className="space-y-10 mb-10">
             <div className="w-[500px] h-[full] mx-auto card card-side bg-base-100 shadow-xl border border-gray-200">
               <img
                 className="w-[300px] h-[200px] rounded-lg p-3"

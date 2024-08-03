@@ -25,13 +25,13 @@ const Cities = () => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table-auto w-full">
+      <table className="table-auto w-full flex content-center justify-center">
         <tbody>
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex} className="border-b">
               {row.map((city, cityIndex) => (
                 <td key={cityIndex} className="p-5">
-                  <a href="#" className="text-blue-600 underline">
+                  <a href="#" className="text-[#156BCA] underline">
                     {city.city}, {city.state}
                   </a>
                 </td>
