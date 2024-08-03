@@ -49,7 +49,18 @@ const SignUp = () => {
         toast.error(error.message);
       });
   };
-
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("You Have Registered Successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
     <>
       {isSmallDevice ? (

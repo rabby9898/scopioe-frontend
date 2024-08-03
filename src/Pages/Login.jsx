@@ -1,15 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 import LoginSlider from "../components/Slider/LoginSlider";
 import useWindowSize from "../Hooks/useWindowSize";
 import LoginSm from "../components/LoginSm/LoginSm";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useContext } from "react";
+import toast from "react-hot-toast";
 const Login = () => {
   const { width } = useWindowSize();
-
+  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   // Define the breakpoint for small devices
   const isSmallDevice = width < 768;
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signInUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        toast.success("successfully login");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
     <>
       {isSmallDevice ? (
@@ -41,7 +61,7 @@ const Login = () => {
               <div className="divider text-[#5C635A] my-8">
                 Or Continue with Email
               </div>
-              <form className=" w-full space-y-3">
+              <form onSubmit={handleSignIn} className=" w-full space-y-3">
                 <div className="form-control">
                   <label className="label">
                     <span className="font-semibold text-base ">Email</span>
@@ -51,6 +71,7 @@ const Login = () => {
                     placeholder="Enter Your Email"
                     className="input input-bordered"
                     required
+                    name="email"
                   />
                 </div>
                 <div className="form-control">
@@ -62,6 +83,7 @@ const Login = () => {
                     placeholder="Enter Your Password"
                     className="input input-bordered"
                     required
+                    name="password"
                   />
                 </div>
                 <div className="flex justify-between">
@@ -105,8 +127,12 @@ const Login = () => {
                     </p>
                   </div>
                 </div>
+
                 <div className=" text-center ">
-                  <button className="btn bg-[#4285F3] text-white text-base w-[300px] font-normal hover:text-[#4285F3] mt-8">
+                  <button
+                    type="submit"
+                    className="btn bg-[#4285F3] text-white text-base w-[300px] font-normal hover:text-[#4285F3] mt-8"
+                  >
                     Sign in
                   </button>
                 </div>
