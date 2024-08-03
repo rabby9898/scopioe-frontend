@@ -7,8 +7,8 @@ import Therapist from "../components/Therapist/Therapist";
 const Home = () => {
   return (
     <div className="font-poppins">
-      <Sidebar />
-      <div className="sm:ml-64">
+      <Sidebar className="block md:hidden" />
+      <div className="sm:ml-64 bg-[#eef2f5]">
         <Navbar />
         <Banner />
         {/* <h1 className="text-[#152A16] text-lg font-semibold font-poppins m-5">

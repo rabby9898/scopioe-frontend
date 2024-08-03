@@ -3,13 +3,13 @@ import Testimonial from "./Testimonial";
 
 const TestimonialCities = () => {
   return (
-    <div className="w-full grid grid-cols-2 items-center gap-8 bg-[#ededed]">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-8 bg-[#eef2f5] pb-5 md:pb-10">
       {/* Testimonial section*/}
       <div>
-        <h1 className="text-[#152A16] text-lg font-semibold font-poppins mx-5">
+        <h1 className="text-[#152A16] text-lg font-semibold font-poppins mt-5 md:mt-0 mx-5">
           Featured Testimonial
         </h1>
-        <div className="mt-5 ml-5 p-5 h-[500px] bg-white rounded-xl">
+        <div className="mt-5 md:mt-5 md:ml-5 p-5 h-[500px] bg-white md:rounded-xl">
           <Testimonial />
         </div>
       </div>
@@ -18,7 +18,7 @@ const TestimonialCities = () => {
         <h1 className="text-[#152A16] text-lg font-semibold font-poppins mx-5">
           Popular Cities
         </h1>
-        <div className="mt-5 mr-5 p-5 h-[500px] bg-white rounded-xl">
+        <div className="mt-5 md:mt-5 md:mr-5 p-5 h-full md:h-[500px] bg-white md:rounded-xl">
           <Cities />
         </div>
       </div>

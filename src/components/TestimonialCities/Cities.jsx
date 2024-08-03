@@ -30,15 +30,18 @@ const Cities = () => {
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex} className="border-b">
               {row.map((city, cityIndex) => (
-                <td key={cityIndex} className="p-5">
-                  <a href="#" className="text-[#156BCA] underline">
+                <td key={cityIndex} className="p-3 md:p-5">
+                  <a
+                    href="#"
+                    className="text-[#156BCA] text-sm md:text-base underline"
+                  >
                     {city.city}, {city.state}
                   </a>
                 </td>
               ))}
               {row.length < 3 &&
                 Array.from({ length: 3 - row.length }).map((_, index) => (
-                  <td key={index} className="p-5 text-center"></td>
+                  <td key={index} className="p-3 md:p-5 text-center"></td>
                 ))}
             </tr>
           ))}
