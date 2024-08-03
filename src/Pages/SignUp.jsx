@@ -1,14 +1,55 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/logo.png";
 import Slider from "../components/Slider/Slider";
 import useWindowSize from "../Hooks/useWindowSize";
 import SignupSm from "../components/SignupSm/SignupSm";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
+import auth from "../Firebase/firebase.config";
 // import bannerImg from "../assets/signupImg.png";
 const SignUp = () => {
   const { width } = useWindowSize();
-
+  const { signUpUser, googleSignIn, setUpdatedUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   // Define the breakpoint for small devices
   const isSmallDevice = width < 768;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log(name, email, password);
+
+    signUpUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+
+        // update profile
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          // photoURL: imgUrl,
+        })
+          .then((res) => {
+            console.log(res);
+            console.log("updated");
+            toast.success("You Have Registered Successfully");
+            // setUpdatedUser(imgUrl);
+            navigate("/");
+          })
+          .catch((error) => {
+            toast.error(error.message);
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
     <>
       {isSmallDevice ? (
@@ -31,16 +72,17 @@ const SignUp = () => {
               </span>
             </p>
 
-            <form className=" w-full space-y-3">
+            <form onSubmit={handleSubmit} className=" w-full space-y-3">
               <div className="form-control">
                 <label className="label">
                   <span className="font-semibold text-base ">Name</span>
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="@Username"
                   className="input input-bordered"
                   required
+                  name="name"
                 />
               </div>
               <div className="form-control">
@@ -52,6 +94,7 @@ const SignUp = () => {
                   placeholder="Enter Your Email"
                   className="input input-bordered"
                   required
+                  name="email"
                 />
               </div>
               <div className="form-control">
@@ -63,6 +106,7 @@ const SignUp = () => {
                   placeholder="Enter Your Password"
                   className="input input-bordered"
                   required
+                  name="password"
                 />
               </div>
               <div className="form-control">
@@ -115,7 +159,10 @@ const SignUp = () => {
                 </div>
               </div>
               <div className=" text-center mt-10">
-                <button className="btn bg-[#4285F3] text-white text-base w-[300px] font-normal hover:text-[#4285F3]">
+                <button
+                  type="submit"
+                  className="btn bg-[#4285F3] text-white text-base w-[300px] font-normal hover:text-[#4285F3]"
+                >
                   Sign up
                 </button>
               </div>
