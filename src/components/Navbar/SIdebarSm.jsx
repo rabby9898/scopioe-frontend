@@ -1,15 +1,20 @@
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+
 const SidebarSm = ({ toggleSidebar }) => {
+  const { user, updatedUser } = useContext(AuthContext);
   return (
     <div className="fixed inset-0 z-50  flex justify-end flex-row-reverse">
       <div className=" w-2/3 md:w-1/3">
         <div className="flex flex-col items-center bg-[#156BCA] justify-end py-16">
           <img
-            className="w-24 h-24 rounded-full"
-            src="https://via.placeholder.com/100"
-            alt="User"
+            className="w-16 h-16  rounded-full"
+            src={user?.photoURL || updatedUser}
           />
-          <h2 className="text-white text-xl font-bold mt-2">Sagar Soni</h2>
-          <p className="text-black text-sm">sagar@gmail.com</p>
+          <h2 className="text-white text-xl font-bold mt-2">
+            {user?.displayName}
+          </h2>
+          <p className="text-black text-sm">{user?.email}</p>
         </div>
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800 pt-5">
           <ul className="space-y-2 font-medium">

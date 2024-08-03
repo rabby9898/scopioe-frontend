@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { IoIosArrowDown, IoMdNotificationsOutline } from "react-icons/io";
 import { LuLogOut } from "react-icons/lu";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import useWindowSize from "../../Hooks/useWindowSize";
 import logo from "../../assets/logo.png";
 import SidebarSm from "./SIdebarSm"; // Import the SidebarSm component
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { width } = useWindowSize();
@@ -16,7 +17,17 @@ const Navbar = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+  const { user, logOut, updatedUser } = useContext(AuthContext);
 
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Sign-out successful");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
   return (
     <>
       <nav className="top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -27,14 +38,19 @@ const Navbar = () => {
                 <img className="w-[110px] h-[30px]" src={logo} alt="Logo" />
               ) : (
                 <div className="flex items-center gap-4">
-                  <FaUserCircle className="w-10 h-10 rounded-full" />
+                  <img
+                    className="w-16 h-16  rounded-full"
+                    src={user?.photoURL || updatedUser}
+                  />
                   <div className="font-medium dark:text-white">
                     <div className="flex justify-between items-center">
-                      <p className="text-sm text-[#152A16]">Shagor Ahmed</p>
+                      <p className="text-sm text-[#152A16]">
+                        {user?.displayName}
+                      </p>
                       <IoIosArrowDown />
                     </div>
                     <p className="text-sm text-[#5C635A] dark:text-gray-400 font-normal">
-                      shagor@gmail.com
+                      {user?.email}
                     </p>
                   </div>
                 </div>
@@ -59,7 +75,10 @@ const Navbar = () => {
 
                 <div className="divider divider-horizontal"></div>
 
-                <div className="flex justify-start gap-5 items-center">
+                <div
+                  onClick={handleSignOut}
+                  className="btn flex justify-start gap-5 items-center bg-transparent border-0 cursor-pointer font-normal"
+                >
                   <button className="text-[#F15E4A] text-base">Log Out</button>
                   <div className="p-3 rounded-full bg-[#FFECEA]">
                     <LuLogOut className="text-[#F15E4A] text-xl " />

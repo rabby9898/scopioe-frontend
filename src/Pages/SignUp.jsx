@@ -11,7 +11,7 @@ import auth from "../Firebase/firebase.config";
 // import bannerImg from "../assets/signupImg.png";
 const SignUp = () => {
   const { width } = useWindowSize();
-  const { signUpUser, googleSignIn, setUpdatedUser } = useContext(AuthContext);
+  const { signUpUser } = useContext(AuthContext);
   const navigate = useNavigate();
   // Define the breakpoint for small devices
   const isSmallDevice = width < 768;
