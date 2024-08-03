@@ -14,11 +14,13 @@ const Navbar = () => {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  // toggle sidebar
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
   const { user, logOut, updatedUser } = useContext(AuthContext);
 
+  // sign out function
   const handleSignOut = () => {
     logOut()
       .then(() => {
@@ -28,23 +30,25 @@ const Navbar = () => {
         toast.error(error);
       });
   };
+  console.log("user----------->", user);
   return (
     <>
       <nav className="top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
-          <div className="px-5 flex items-center justify-between">
+          <div className="px-2 lg:px-5 flex items-center justify-between">
+            {/* large screen and small screen condition */}
             <div>
               {isSmallDevice ? (
                 <img className="w-[110px] h-[30px]" src={logo} alt="Logo" />
               ) : (
                 <div className="flex items-center gap-4">
                   <img
-                    className="w-16 h-16  rounded-full"
+                    className="w-10 h-10 lg:w-16 lg:h-16  rounded-full"
                     src={user?.photoURL || updatedUser}
                   />
                   <div className="font-medium dark:text-white">
                     <div className="flex justify-between items-center">
-                      <p className="text-sm text-[#152A16]">
+                      <p className="text-xs font-normal lg:text-sm text-[#152A16]">
                         {user?.displayName}
                       </p>
                       <IoIosArrowDown />
@@ -56,6 +60,8 @@ const Navbar = () => {
                 </div>
               )}
             </div>
+
+            {/* large screen and small screen condition */}
 
             {isSmallDevice ? (
               <div className="flex justify-between items-center gap-5">
@@ -70,18 +76,20 @@ const Navbar = () => {
             ) : (
               <div className="flex justify-between items-center">
                 <div className="text-black p-3 rounded-full border border-[#E7E7E7]">
-                  <IoMdNotificationsOutline className="text-xl" />
+                  <IoMdNotificationsOutline className="text-base lg:text-xl" />
                 </div>
 
                 <div className="divider divider-horizontal"></div>
 
                 <div
                   onClick={handleSignOut}
-                  className="btn flex justify-start gap-5 items-center bg-transparent border-0 cursor-pointer font-normal"
+                  className="btn flex justify-start gap-2 lg:gap-5 items-center bg-transparent border-0 cursor-pointer font-normal"
                 >
-                  <button className="text-[#F15E4A] text-base">Log Out</button>
+                  <button className="text-[#F15E4A] text-sm lg:text-base">
+                    Log Out
+                  </button>
                   <div className="p-3 rounded-full bg-[#FFECEA]">
-                    <LuLogOut className="text-[#F15E4A] text-xl " />
+                    <LuLogOut className="text-[#F15E4A] text-base lg:text-xl " />
                   </div>
                 </div>
               </div>

@@ -43,6 +43,7 @@ export default function LoginSlider() {
             </div>
           </div>
         </SwiperSlide>
+        {/* Slider - 2 */}
         <SwiperSlide>
           <div
             className="hero h-[700px] rounded-2xl"
@@ -63,6 +64,8 @@ export default function LoginSlider() {
             </div>
           </div>
         </SwiperSlide>
+        {/* Slider - 3 */}
+
         <SwiperSlide>
           <div
             className="hero h-[700px] rounded-2xl"

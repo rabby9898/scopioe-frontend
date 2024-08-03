@@ -2,19 +2,23 @@ import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import LoginSlider from "../components/Slider/LoginSlider";
 import useWindowSize from "../Hooks/useWindowSize";
 import LoginSm from "../components/LoginSm/LoginSm";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 const Login = () => {
+  // windowsize hook
   const { width } = useWindowSize();
   const { signInUser, googleSignIn, facebookSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
   // Define the breakpoint for small devices
   const isSmallDevice = width < 768;
 
+  // Sign In Functionality
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -31,6 +35,7 @@ const Login = () => {
       });
   };
 
+  // Google Sign In functionality
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
@@ -44,6 +49,7 @@ const Login = () => {
       });
   };
 
+  // Facebook Sign In functionality
   const handleFacebookSignIn = () => {
     facebookSignIn()
       .then((result) => {
@@ -73,6 +79,8 @@ const Login = () => {
               <p className="text-[#5C635A] text-base font-normal mb-5 mt-3 text-justify">
                 Welcome Back! Select a method to log in:
               </p>
+
+              {/* Login In social Button Start*/}
               <div className="flex justify-between items-center">
                 <div
                   onClick={handleGoogleSignIn}
@@ -90,9 +98,12 @@ const Login = () => {
                   <p className="text-base text-white">Facebook</p>
                 </div>
               </div>
+              {/* Login In social Button End*/}
+
               <div className="divider text-[#5C635A] my-8">
                 Or Continue with Email
               </div>
+              {/* Login Form Start*/}
               <form onSubmit={handleSignIn} className=" w-full space-y-3">
                 <div className="form-control">
                   <label className="label">
@@ -106,17 +117,25 @@ const Login = () => {
                     name="email"
                   />
                 </div>
-                <div className="form-control">
+                <div className="relative form-control">
                   <label className="label">
                     <span className=" font-semibold text-base">Password</span>
                   </label>
                   <input
-                    type="password"
+                    // For eye button
+                    type={show ? "text" : "password"}
                     placeholder="Enter Your Password"
                     className="input input-bordered"
                     required
                     name="password"
                   />
+                  <span
+                    // For eye button
+                    onClick={() => setShow(!show)}
+                    className="absolute top-[53px] left-[25.5rem] text-2xl"
+                  >
+                    {show ? <AiFillEyeInvisible /> : <AiFillEye />}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <div className="inline-flex items-center">
@@ -180,8 +199,10 @@ const Login = () => {
                   </p>
                 </div>
               </form>
+              {/* Login Form End*/}
             </div>
           </div>
+          {/* Login Slider*/}
           <div className=" h-full lg:h-[700px]">
             <LoginSlider />
           </div>

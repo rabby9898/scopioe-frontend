@@ -1,4 +1,4 @@
-# Project Scopioe:
+# Scopioe Live Link: https://scopioe-c9f29.web.app
 
 ## Overview
 
@@ -69,8 +69,7 @@ This project is a fully functional React.js application that converts a Figma de
   - **components/**: Reusable components used throughout the application.
   - **pages/**: Page components for different routes.
   - **styles/**: Tailwind CSS and other style files.
-  - **App.js**: Main application component.
-  - **index.js**: Entry point of the application.
+  - **main.jsx**: Entry point of the application.
 
 ## Contact
 

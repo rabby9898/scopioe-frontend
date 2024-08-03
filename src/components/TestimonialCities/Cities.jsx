@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const Cities = () => {
   const [cities, setCities] = useState([]);
-
+  // data fetching function
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,10 +30,10 @@ const Cities = () => {
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex} className="border-b">
               {row.map((city, cityIndex) => (
-                <td key={cityIndex} className="p-3 md:p-5">
+                <td key={cityIndex} className="p-3 lg:p-5">
                   <a
                     href="#"
-                    className="text-[#156BCA] text-sm md:text-base underline"
+                    className="text-[#156BCA] text-sm lg:text-base underline"
                   >
                     {city.city}, {city.state}
                   </a>
@@ -41,7 +41,7 @@ const Cities = () => {
               ))}
               {row.length < 3 &&
                 Array.from({ length: 3 - row.length }).map((_, index) => (
-                  <td key={index} className="p-3 md:p-5 text-center"></td>
+                  <td key={index} className="p-3 lg:p-5 text-center"></td>
                 ))}
             </tr>
           ))}

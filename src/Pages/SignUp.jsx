@@ -3,27 +3,39 @@ import logoImg from "../assets/logo.png";
 import Slider from "../components/Slider/Slider";
 import useWindowSize from "../Hooks/useWindowSize";
 import SignupSm from "../components/SignupSm/SignupSm";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
 import auth from "../Firebase/firebase.config";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+
 // import bannerImg from "../assets/signupImg.png";
 const SignUp = () => {
   const { width } = useWindowSize();
   const { signUpUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false);
+  const [showConPass, setShowConPass] = useState(false);
+
   // Define the breakpoint for small devices
   const isSmallDevice = width < 768;
 
+  // Signup Functionality
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const retypePass = e.target.retypePass.value;
 
     console.log(name, email, password);
-
+    // password match condition
+    if (password !== retypePass) {
+      toast.error("Passwords do not match. Please try again.");
+      return;
+    }
+    // user data info
     signUpUser(email, password)
       .then((res) => {
         console.log(res.user);
@@ -31,13 +43,11 @@ const SignUp = () => {
         // update profile
         updateProfile(auth.currentUser, {
           displayName: name,
-          // photoURL: imgUrl,
         })
           .then((res) => {
             console.log(res);
             console.log("updated");
-            toast.success("You Have Registered Successfully");
-            // setUpdatedUser(imgUrl);
+            toast.success("You Have Sign Up Successfully");
             navigate("/");
           })
           .catch((error) => {
@@ -70,7 +80,7 @@ const SignUp = () => {
                 Privacy and Policy
               </span>
             </p>
-
+            {/* SIgn Up Form Start */}
             <form onSubmit={handleSubmit} className=" w-full space-y-3">
               <div className="form-control">
                 <label className="label">
@@ -96,30 +106,48 @@ const SignUp = () => {
                   name="email"
                 />
               </div>
-              <div className="form-control">
+              <div className="relative form-control">
                 <label className="label">
                   <span className=" font-semibold text-base">Password</span>
                 </label>
                 <input
-                  type="password"
+                  // For eye button
+                  type={showPass ? "text" : "password"}
                   placeholder="Enter Your Password"
                   className="input input-bordered"
                   required
                   name="password"
                 />
+
+                <span
+                  // For eye button
+                  onClick={() => setShowPass(!showPass)}
+                  className="absolute top-[53px] left-[25.5rem] text-2xl"
+                >
+                  {showPass ? <AiFillEyeInvisible /> : <AiFillEye />}
+                </span>
               </div>
-              <div className="form-control">
+              <div className="relative form-control">
                 <label className="label">
                   <span className="font-semibold text-base">
                     Confirm Password
                   </span>
                 </label>
                 <input
-                  type="password"
+                  // For eye button
+                  type={showConPass ? "text" : "password"}
                   placeholder="Re-Type Password"
                   className="input input-bordered"
+                  name="retypePass"
                   required
                 />
+                <span
+                  // For eye button
+                  onClick={() => setShowConPass(!showConPass)}
+                  className="absolute top-[53px] left-[25.5rem] text-2xl"
+                >
+                  {showConPass ? <AiFillEyeInvisible /> : <AiFillEye />}
+                </span>
               </div>
               <div>
                 <div className="inline-flex items-center">
@@ -174,7 +202,9 @@ const SignUp = () => {
                 </p>
               </div>
             </form>
+            {/* SIgn Up Form End */}
           </div>
+          {/* Slider for signup page */}
           <div className=" h-full lg:h-[700px]">
             <Slider />
           </div>

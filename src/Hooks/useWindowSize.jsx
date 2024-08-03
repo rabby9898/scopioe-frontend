@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useWindowSize = () => {
+  // screen size set hook
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,

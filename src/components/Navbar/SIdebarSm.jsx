@@ -6,6 +6,7 @@ const SidebarSm = ({ toggleSidebar }) => {
   return (
     <div className="fixed inset-0 z-50  flex justify-end flex-row-reverse">
       <div className=" w-2/3 md:w-1/3">
+        {/* sidebar content */}
         <div className="flex flex-col items-center bg-[#156BCA] justify-end py-16">
           <img
             className="w-16 h-16  rounded-full"
@@ -18,6 +19,7 @@ const SidebarSm = ({ toggleSidebar }) => {
         </div>
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800 pt-5">
           <ul className="space-y-2 font-medium">
+            {/* sidebar list item */}
             <li className="">
               <a
                 href="/"
