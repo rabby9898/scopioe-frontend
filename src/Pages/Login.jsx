@@ -84,18 +84,18 @@ const Login = () => {
               <div className="flex justify-between items-center">
                 <div
                   onClick={handleGoogleSignIn}
-                  className="flex justify-center items-center bg-gradient-to-r from-[#E4E4E4] to-[#FFFFFF] space-x-2 border my-3 px-10 py-3 border-gray-300 border-rounded cursor-pointer shadow-xl rounded-lg"
+                  className="flex justify-between items-center bg-gradient-to-r from-[#E4E4E4] to-[#FFFFFF] space-x-2 border my-3 px-5 lg:px-10 py-3 border-gray-300 border-rounded cursor-pointer shadow-xl rounded-lg"
                 >
                   <FcGoogle size={32} />
 
-                  <p className="text-base text-black">Google</p>
+                  <p className="text-sm lg:text-base text-black">Google</p>
                 </div>
                 <div
                   onClick={handleFacebookSignIn}
-                  className="flex justify-center items-center bg-gradient-to-r from-[#298FFF] to-[#0778F5] space-x-2 border my-3 px-10 py-4 border-gray-300 border-rounded cursor-pointer shadow-xl rounded-lg"
+                  className="flex justify-center items-center bg-gradient-to-r from-[#298FFF] to-[#0778F5] space-x-2 border my-3 px-5 lg:px-10 py-4 border-gray-300 border-rounded cursor-pointer shadow-xl rounded-lg"
                 >
-                  <FaFacebookF className="text-white text-base" />
-                  <p className="text-base text-white">Facebook</p>
+                  <FaFacebookF className="text-white text-sm lg:text-base" />
+                  <p className="text-sm lg:text-base text-white">Facebook</p>
                 </div>
               </div>
               {/* Login In social Button End*/}

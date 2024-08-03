@@ -7,7 +7,7 @@ const LoginSm = () => {
   return (
     <>
       <div
-        className="min-h-screen font-poppins"
+        className="min-h-screen font-poppins w-full"
         style={{
           backgroundImage: `url(${img})`,
         }}
@@ -30,12 +30,12 @@ const LoginSm = () => {
               </p>
             </div>
             <div className="flex justify-between items-center py-5">
-              <div className="flex justify-center items-center bg-gradient-to-r from-[#E4E4E4] to-[#FFFFFF] space-x-2 border my-3 px-10 py-3 border-gray-300 border-rounded cursor-pointer shadow-xl rounded-lg">
+              <div className="flex justify-center items-center bg-gradient-to-r from-[#E4E4E4] to-[#FFFFFF] space-x-2 border my-3 px-8 py-3 border-gray-300 border-rounded cursor-pointer shadow-xl rounded-lg">
                 <FcGoogle size={32} />
 
                 <p className="text-base text-black">Google</p>
               </div>
-              <div className="flex justify-center items-center bg-gradient-to-r from-[#298FFF] to-[#0778F5] space-x-2 border my-3 px-10 py-4 border-gray-300 border-rounded cursor-pointer shadow-xl rounded-lg">
+              <div className="flex justify-center items-center bg-gradient-to-r from-[#298FFF] to-[#0778F5] space-x-2 border my-3 px-8 py-4 border-gray-300 border-rounded cursor-pointer shadow-xl rounded-lg">
                 <FaFacebookF className="text-white text-base" />
                 <p className="text-base text-white">Facebook</p>
               </div>
